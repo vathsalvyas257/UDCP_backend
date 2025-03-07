@@ -134,7 +134,7 @@ module.exports.login_post=async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ error: "User not found" });
   
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
   
     const token = jwt.sign({ userId: user._id, role: user.role }, JWT_SECRET, { expiresIn: "12h" });
