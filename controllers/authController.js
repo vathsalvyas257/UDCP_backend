@@ -168,7 +168,7 @@ module.exports.googleAuthCallback=async (req, res) => {
     if(process.env.NODE_ENV==='production'){
         res.redirect("")
     }
-    res.redirect(`http://localhost:5173/auth-success?token=${token}`);
+    res.redirect(`${process.env.FRONTEND_URL}/auth-success?token=${token}`);
   }
 
 
