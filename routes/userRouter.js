@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/userModel"); // Adjust the path as per your project structure
 const router = express.Router();
 const authenticate=require("../middlewares/authenticate");
-router.get("/api/auth/user", authenticate, async (req, res) => {
+router.get("/auth/user", authenticate, async (req, res) => {
     try {
       const user = await User.findById(req.user.userId).select("-password"); // Exclude sensitive fields like password
       if (!user) {

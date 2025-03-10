@@ -27,18 +27,18 @@ router.get(
   passport.authenticate("google", { session: false }),
   authController.googleAuthCallback
 );
-router.post('/api/auth/logout', (req, res) => {
+router.post('/auth/logout', (req, res) => {
   res.clearCookie('token', { httpOnly: true, sameSite: 'None', secure: true });
   res.status(200).json({ message: 'Logout successful' });
 });
 
-router.post("/api/auth/sendOTP",authController.sendOtp);
+router.post("/auth/sendOTP",authController.sendOtp);
 
-router.post("/api/auth/verifyOTP",authController.verifyOtp);
+router.post("/auth/verifyOTP",authController.verifyOtp);
 
 
 // Logout API - Remove cookies (JWT)
-router.post('/api/auth/logout', authController.logout);
+router.post('/auth/logout', authController.logout);
 
-router.get("/api/user", authenticate, authController.fetchUser);
+router.get("/user", authenticate, authController.fetchUser);
 module.exports = router;
