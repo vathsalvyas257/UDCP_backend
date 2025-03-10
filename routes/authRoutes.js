@@ -19,7 +19,7 @@ router.post("/auth/register", upload.single("image"),authController.apiAuthRegis
 router.post("/auth/login", authController.login_post);
 
 // 📌 Google OAuth Route
-router.get("/api/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+router.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 
 // 📌 Google OAuth Callback (Ensure Leading Slash `/auth/...`)
 router.get(
