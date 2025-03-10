@@ -28,7 +28,7 @@ app.use("/", authRoutes);
 app.use("/",userRoutes);
 app.use("/schedule",scheduleRoutes);
 app.use("/threads",threadRouter);
-app.use("/api/replies",replyRoutes );
+app.use("/replies",replyRoutes );
 app.use("/alumni",alumniRoutes);
 app.use("/club",clubRoutes);
 
