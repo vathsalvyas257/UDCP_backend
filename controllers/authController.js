@@ -105,7 +105,7 @@ module.exports.apiAuthRegister = async (req, res) => {
             email: lowerCaseEmail,
             password: hashedPassword,
             role: value.role, // Joi assigns default role if not provided
-            googleId: value.googleId || null,
+            googleId: value.googleId || "",
             image: imageUrl,
         });
 
