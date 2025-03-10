@@ -13,10 +13,10 @@ const JWT_SECRET = process.env.JWT_SECRET || "your_secret_key";
 
 const storage = multer.memoryStorage(); // Store file in memory as a buffer
 const upload = multer({ storage: storage }); 
-router.post("/api/auth/register", upload.single("image"),authController.apiAuthRegister);
+router.post("/auth/register", upload.single("image"),authController.apiAuthRegister);
 
 // 📌 Login Route
-router.post("/api/auth/login", authController.login_post);
+router.post("/auth/login", authController.login_post);
 
 // 📌 Google OAuth Route
 router.get("/api/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
